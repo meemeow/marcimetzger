@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-cormorant);
+  --font-script: var(--font-fleur-de-leah);
+}
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-ink: #141414;
+  --color-charcoal: #171615;
+  --color-cream: #f6f3ee;
+  --color-sky: #11283c;
+  --color-gold: #8a6a35;
+  --color-gold-light: #d2b47c;
+  --color-gold-pale: #f4e4bc;
+  --color-gold-deep: #aa771c;
+  --color-gold-amber: #b38728;
+  --color-gold-bright: #bf953f;
+  --color-gold-shine: #fcf6ba;
+
+  --animate-ring: ring 400ms ease-in-out;
+  --animate-progress: progress linear forwards;
+  --animate-letter-glow: letter-glow 3.2s ease-in-out infinite;
+  --animate-menu-grid-in: menu-grid-in 450ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-tile-pop: tile-pop 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+
+  @keyframes menu-grid-in {
+    from {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.4);
+    }
+  }
+
+  @keyframes tile-pop {
+    from {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes ring {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(-14deg);
+    }
+    40% {
+      transform: rotate(12deg);
+    }
+    60% {
+      transform: rotate(-8deg);
+    }
+    80% {
+      transform: rotate(5deg);
+    }
+  }
+
+  @keyframes letter-glow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 0 rgb(255 200 160 / 0));
+      transform: translateY(0) scale(1);
+      opacity: 0.95;
+    }
+    40% {
+      filter: drop-shadow(0 0 18px rgb(255 180 120 / 0.36));
+      transform: translateY(-3px) scale(1.02);
+      opacity: 1;
+    }
+  }
+}
+
+@layer components {
+  .drawer {
+    translate: -100% 0;
+    transition:
+      translate 300ms ease-out,
+      display 300ms allow-discrete,
+      overlay 300ms allow-discrete;
+  }
+
+  .drawer[open] {
+    translate: 0 0;
+  }
+
+  @starting-style {
+    .drawer[open] {
+      translate: -100% 0;
+    }
+  }
+
+  .drawer::backdrop {
+    background-color: rgb(0 0 0 / 0);
+    transition:
+      background-color 300ms ease-out,
+      display 300ms allow-discrete,
+      overlay 300ms allow-discrete;
+  }
+
+  .drawer[open]::backdrop {
+    background-color: rgb(0 0 0 / 0.5);
+  }
+
+  @starting-style {
+    .drawer[open]::backdrop {
+      background-color: rgb(0 0 0 / 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .drawer,
+    .drawer::backdrop {
+      transition: none;
+    }
+  }
+
+  html:has(.drawer[open]) {
+    overflow: hidden;
+  }
+
+  .social-icon {
+    background-color: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .gold-plated {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--plate-fill, var(--color-charcoal)), var(--plate-fill, var(--color-charcoal)))
+        padding-box,
+      linear-gradient(
+          135deg,
+          var(--color-gold-pale),
+          var(--color-gold) 40%,
+          var(--color-gold-pale) 65%,
+          var(--color-gold)
+        )
+        border-box;
+  }
+
+  .thin-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.25) transparent;
+  }
+
+  .ornament {
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .metallic-gold {
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--color-gold-deep) 0,
+      var(--color-gold-bright) 16px,
+      var(--color-gold-shine) 32px,
+      var(--color-gold-amber) 48px,
+      var(--color-gold-shine) 64px,
+      var(--color-gold-bright) 80px,
+      var(--color-gold-deep) 96px
+    );
+  }
+
+  .metallic-gold-muted {
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--color-gold) 0,
+      var(--color-gold-amber) 16px,
+      var(--color-gold-bright) 32px,
+      var(--color-gold-deep) 48px,
+      var(--color-gold-bright) 64px,
+      var(--color-gold-amber) 80px,
+      var(--color-gold) 96px
+    );
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
