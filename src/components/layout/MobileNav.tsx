@@ -33,12 +33,6 @@ export function MobileNav({ className }: MobileNavProps) {
     dialogRef.current?.close();
   }
 
-  function handleLinkClick(event: MouseEvent<HTMLAnchorElement>, href: string) {
-    event.preventDefault();
-    window.history.pushState(null, "", href);
-    close();
-  }
-
   function handleBackdropClick(event: MouseEvent<HTMLDialogElement>) {
     if (event.target === event.currentTarget) close();
   }
@@ -70,7 +64,7 @@ export function MobileNav({ className }: MobileNavProps) {
                 <li key={item.href} className="border-b border-white/10">
                   <a
                     href={item.href}
-                    onClick={(event) => handleLinkClick(event, item.href)}
+                    onClick={close}
                     className="block py-2.5 font-serif text-xl transition-colors xs:py-3 xs:text-2xl hover:text-gold-light focus-visible:text-gold-light focus-visible:outline-none"
                   >
                     {item.label}
