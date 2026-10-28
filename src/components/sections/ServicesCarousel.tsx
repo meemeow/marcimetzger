@@ -2,14 +2,13 @@
 
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { Feature } from "@/types/content";
+import type { ExpandLabels, Feature } from "@/types/content";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import { readingTimeMs } from "@/lib/reading-time";
 import { roundControlStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
-const peekShiftPercent = 36;
 const peekScale = 0.8;
 const clickSlopPx = 6;
 const settleTransition = "transform 450ms cubic-bezier(.2,.9,.2,1), opacity 450ms ease, filter 450ms ease";
@@ -17,10 +16,11 @@ const settleTransition = "transform 450ms cubic-bezier(.2,.9,.2,1), opacity 450m
 type ServicesCarouselProps = {
   label: string;
   features: Feature[];
+  expandLabels: ExpandLabels;
   className?: string;
 };
 
-export function ServicesCarousel({ label, features, className }: ServicesCarouselProps) {
+export function ServicesCarousel({ label, features, expandLabels, className }: ServicesCarouselProps) {
   const count = features.length;
   const [active, setActive] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -51,7 +51,7 @@ export function ServicesCarousel({ label, features, className }: ServicesCarouse
     const distance = Math.min(Math.abs(position), 2);
     const nearness = Math.min(distance, 1);
     return {
-      transform: `translateX(${position * peekShiftPercent}%) scale(${1 - (1 - peekScale) * nearness})`,
+      transform: `translateX(calc(${position} * var(--peek-shift))) scale(${1 - (1 - peekScale) * nearness})`,
       opacity: distance <= 1 ? 1 - 0.25 * distance : Math.max(0, 0.75 * (2 - distance)),
       filter: `brightness(${1 - 0.15 * nearness})`,
       zIndex: 100 - Math.round(distance * 10),
@@ -60,6 +60,7 @@ export function ServicesCarousel({ label, features, className }: ServicesCarouse
   }
 
   function onPointerDown(event: PointerEvent<HTMLDivElement>) {
+    if ((event.target as HTMLElement).closest("button")) return;
     const slide = (event.target as HTMLElement).closest<HTMLElement>("[data-slide-index]");
     pressedIndex.current = slide ? Number(slide.dataset.slideIndex) : null;
     dragStartX.current = event.clientX;
@@ -90,7 +91,7 @@ export function ServicesCarousel({ label, features, className }: ServicesCarouse
       <div
         aria-live={isAutoplaying ? "off" : "polite"}
         className={cn(
-          "isolate grid touch-pan-y overflow-x-clip py-4 select-none",
+          "isolate grid touch-pan-y overflow-x-clip py-4 select-none [--peek-shift:36%] lg:[--peek-shift:48%] xl:[--peek-shift:60%] 2xl:[--peek-shift:36%] sm:max-lg:[mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]",
           isDragging ? "cursor-grabbing" : "cursor-grab",
         )}
         onMouseEnter={() => setIsHovered(true)}
@@ -112,17 +113,17 @@ export function ServicesCarousel({ label, features, className }: ServicesCarouse
               aria-label={`${index + 1} of ${count}`}
               aria-hidden={!isCurrent}
               style={slideStyle(index)}
-              className="col-start-1 row-start-1 w-3/4 justify-self-center sm:w-3/5"
+              className="col-start-1 row-start-1 w-[88%] justify-self-center xs:w-3/4 sm:w-[72%] sm:max-w-md 2xl:w-3/5 2xl:max-w-none"
             >
-              <FeatureCard feature={feature} index={index} />
+              <FeatureCard feature={feature} index={index} isActive={isCurrent} expandLabels={expandLabels} />
             </div>
           );
         })}
       </div>
 
-      <div className="mt-10 flex items-center justify-center gap-4 sm:gap-6">
+      <div className="mt-8 flex items-center justify-center gap-3 xs:mt-10 xs:gap-4 sm:gap-6">
         <button type="button" onClick={showPrevious} aria-label="Previous service" className={roundControlStyles}>
-          <ChevronLeft className="size-5" aria-hidden />
+          <ChevronLeft className="size-4 xs:size-5" aria-hidden />
         </button>
         <div className="flex items-center">
           {features.map((feature, index) => {
@@ -139,7 +140,7 @@ export function ServicesCarousel({ label, features, className }: ServicesCarouse
                 <span
                   className={cn(
                     "relative block h-2 overflow-hidden rounded-full transition-all duration-500",
-                    isCurrent ? "w-10 bg-white/20" : "w-2 bg-white/35 group-hover:bg-white/60",
+                    isCurrent ? "w-7 bg-white/20 xs:w-10" : "w-2 bg-white/35 group-hover:bg-white/60",
                   )}
                 >
                   {isCurrent && (
@@ -159,7 +160,7 @@ export function ServicesCarousel({ label, features, className }: ServicesCarouse
           })}
         </div>
         <button type="button" onClick={showNext} aria-label="Next service" className={roundControlStyles}>
-          <ChevronRight className="size-5" aria-hidden />
+          <ChevronRight className="size-4 xs:size-5" aria-hidden />
         </button>
       </div>
     </div>

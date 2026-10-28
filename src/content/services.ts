@@ -9,6 +9,10 @@ import type { Feature } from "@/types/content";
 export const services = {
   eyebrow: "Our Services",
   title: "Get It Sold",
+  expandLabels: {
+    more: "Read more",
+    less: "Show less",
+  },
   features: [
     {
       title: "Top Residential Sales Last 5 Years",

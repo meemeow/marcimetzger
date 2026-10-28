@@ -7,8 +7,7 @@ import { site } from "@/content/site";
 import { buttonStyles } from "@/components/ui/Button";
 import { MenuButton } from "@/components/layout/MenuButton";
 import { MenuGridIcon } from "@/components/layout/MenuGridIcon";
-
-const desktopQuery = "(min-width: 64rem)";
+import { DESKTOP_MEDIA_QUERY } from "@/lib/constants";
 
 type MobileNavProps = {
   className?: string;
@@ -18,7 +17,7 @@ export function MobileNav({ className }: MobileNavProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(desktopQuery);
+    const mediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY);
     const closeOnDesktop = () => {
       if (mediaQuery.matches) dialogRef.current?.close();
     };
@@ -46,7 +45,7 @@ export function MobileNav({ className }: MobileNavProps) {
         aria-label={menuLabels.title}
         onClick={handleBackdropClick}
         data-native-scroll
-        className="drawer inset-y-0 right-auto left-0 m-0 h-dvh max-h-none w-80 max-w-[85vw] border-r border-gold-light/30 bg-charcoal p-0 text-white"
+        className="drawer inset-y-0 right-auto left-0 m-0 h-dvh max-h-none w-64 max-w-[75vw] border-r border-gold-light/30 bg-charcoal p-0 text-white"
       >
         <div className="flex h-full flex-col overflow-y-auto px-4 pb-8 sm:px-6">
           <div className="flex h-20 shrink-0 items-center">
@@ -66,7 +65,7 @@ export function MobileNav({ className }: MobileNavProps) {
                   <a
                     href={item.href}
                     onClick={close}
-                    className="block py-3 font-serif text-2xl transition-colors hover:text-gold-light focus-visible:text-gold-light focus-visible:outline-none"
+                    className="block py-2.5 font-serif text-xl transition-colors xs:py-3 xs:text-2xl hover:text-gold-light focus-visible:text-gold-light focus-visible:outline-none"
                   >
                     {item.label}
                   </a>
@@ -74,7 +73,10 @@ export function MobileNav({ className }: MobileNavProps) {
               ))}
             </ul>
           </nav>
-          <a href={site.phone.href} className={buttonStyles("solid", "mt-auto w-full")}>
+          <a href={site.phone.href} className={buttonStyles(
+              "solid",
+              "mt-auto min-h-10 w-full gap-2 px-3 text-xs tracking-wider text-nowrap xs:min-h-12 xs:gap-3 xs:px-7 xs:text-sm xs:tracking-widest",
+            )}>
             <Phone className="size-4" aria-hidden />
             {site.phone.display}
           </a>

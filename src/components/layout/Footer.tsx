@@ -8,16 +8,16 @@ import { SocialLinks } from "@/components/ui/SocialLinks";
 export function Footer() {
   return (
     <footer className="bg-black text-white">
-      <Container className="py-16 lg:max-w-none lg:px-16">
-        <div className="flex flex-col items-center gap-10 lg:flex-row lg:justify-between">
-          <Logo tone="light" className="h-9" />
+      <Container className="py-12 xs:py-16 lg:max-w-none lg:px-16">
+        <div className="flex flex-col items-center gap-8 xs:gap-10 lg:flex-row lg:justify-between">
+          <Logo tone="light" className="h-7 xs:h-8 sm:h-9" />
           <nav aria-label="Footer">
-            <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-3 text-center xs:flex xs:flex-wrap xs:justify-center">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-xs uppercase tracking-widest text-white/70 transition-colors hover:text-white"
+                    className="text-2xs uppercase tracking-widest text-white/70 transition-colors hover:text-white xs:text-xs"
                   >
                     {item.label}
                   </a>
@@ -27,7 +27,7 @@ export function Footer() {
           </nav>
           <SocialLinks />
         </div>
-        <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/15 pt-8 text-center text-xs tracking-wider text-white/55 lg:flex-row lg:justify-between lg:text-left">
+        <div className="mt-10 flex flex-col items-center gap-2 border-t border-white/15 pt-6 text-center text-2xs tracking-wider text-white/55 xs:mt-12 xs:gap-3 xs:pt-8 xs:text-xs lg:flex-row lg:justify-between lg:text-left">
           <p>
             Copyright © <CurrentYear /> {site.name} - All Rights Reserved
           </p>

@@ -23,14 +23,14 @@ export function SectionHeading({
       {eyebrow && (
         <p
           className={cn(
-            "text-xs font-semibold uppercase tracking-[0.3em]",
+            "text-2xs font-semibold uppercase tracking-[0.2em] xs:text-xs xs:tracking-[0.3em]",
             tone === "dark" ? "text-gold" : "text-gold-light",
           )}
         >
           {eyebrow}
         </p>
       )}
-      <h2 className="mt-4 font-serif text-4xl font-medium leading-tight sm:text-5xl lg:text-6xl">{title}</h2>
+      <h2 className="mt-3 font-serif text-3xl font-medium leading-tight xs:mt-4 xs:text-4xl sm:text-5xl xl:text-6xl">{title}</h2>
       {divider === "ornament" && <Ornament align={align} tone={tone} className="mt-2" />}
       {divider === "flourish" && <Ornament variant="flourish" align={align} tone={tone} className="mt-1" />}
       {divider === "line" && (

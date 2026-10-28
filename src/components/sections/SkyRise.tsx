@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { SKY_RISE_END_PX, SKY_RISE_START_PX } from "@/lib/constants";
+import { getSkyRiseRange } from "@/lib/sky-rise";
+
+const seamOverlapPx = 1;
 
 export function SkyRise() {
   const layerRef = useRef<HTMLDivElement>(null);
@@ -13,8 +15,9 @@ export function SkyRise() {
 
     const update = () => {
       const top = section.getBoundingClientRect().top;
-      const progress = Math.min(1, Math.max(0, (SKY_RISE_START_PX - top) / (SKY_RISE_START_PX - SKY_RISE_END_PX)));
-      layer.style.height = `${Math.max(0, top) * progress}px`;
+      const { startPx, endPx } = getSkyRiseRange(section);
+      const progress = Math.min(1, Math.max(0, (startPx - top) / (startPx - endPx)));
+      layer.style.height = `${(Math.max(0, top) + seamOverlapPx) * progress}px`;
     };
 
     update();
@@ -26,5 +29,5 @@ export function SkyRise() {
     };
   }, []);
 
-  return <div ref={layerRef} aria-hidden className="pointer-events-none absolute inset-x-0 bottom-full h-0 bg-sky" />;
+  return <div ref={layerRef} aria-hidden className="pointer-events-none absolute inset-x-0 bottom-full h-0 translate-y-px bg-sky" />;
 }

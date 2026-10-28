@@ -21,8 +21,8 @@ export function ContactForm() {
 
   return (
     <GoldPlate className="self-center [--plate-fill:var(--color-charcoal)]">
-      <form onSubmit={handleSubmit} aria-labelledby={titleId} className="flex flex-col gap-4 p-6 sm:p-8">
-        <h3 id={titleId} className="mb-2 text-center font-serif text-3xl font-medium sm:text-4xl">
+      <form onSubmit={handleSubmit} aria-labelledby={titleId} className="flex flex-col gap-4 p-5 xs:p-6 sm:p-8">
+        <h3 id={titleId} className="mb-1 text-center font-serif text-2xl font-medium xs:mb-2 xs:text-3xl sm:text-4xl">
           {form.title}
         </h3>
         <TextField label={form.labels.name} name="name" autoComplete="name" variant="darkOutlined" />

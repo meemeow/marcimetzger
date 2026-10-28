@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { Container } from "@/components/ui/Container";
+import { sectionGutterStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
 const tones = {
@@ -20,10 +20,10 @@ export function Section({ tone = "white", className, containerClassName, childre
   return (
     <section
       data-header-overlay={darkTones.has(tone) || undefined}
-      className={cn("py-20 lg:py-28", tones[tone], className)}
+      className={cn("py-16 xs:py-20 lg:py-28", sectionGutterStyles, tones[tone], className)}
       {...props}
     >
-      <Container className={containerClassName}>{children}</Container>
+      <div className={cn("mx-auto w-full max-w-7xl", containerClassName)}>{children}</div>
     </section>
   );
 }

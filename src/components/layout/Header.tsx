@@ -9,7 +9,7 @@ export function Header() {
     <HeaderShell>
       <Container className="grid h-20 grid-cols-[1fr_auto_1fr] items-center lg:flex lg:h-24 lg:max-w-none lg:justify-between lg:px-16">
         <MobileNav className="justify-self-start text-white group-data-[tone=solid]:text-black" />
-        <Logo className="h-9 lg:h-9.5" imageClassName="invert transition duration-300 group-data-[tone=solid]:invert-0" />
+        <Logo className="h-7 xs:h-8 sm:h-9 lg:h-9.5" imageClassName="invert transition duration-300 group-data-[tone=solid]:invert-0" />
         <HeaderNav />
       </Container>
     </HeaderShell>

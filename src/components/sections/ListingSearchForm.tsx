@@ -30,16 +30,16 @@ export function ListingSearchForm({ className }: ListingSearchFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className={cn("border-y border-gold-light/50 bg-ink/30 px-4 py-6 backdrop-blur-sm sm:px-6", className)}
+      className={cn("border-y border-gold-light/50 bg-ink/30 px-4 py-5 backdrop-blur-sm xs:py-6 sm:px-6", className)}
     >
       <h3 className="sr-only">{listingSearch.formTitle}</h3>
-      <div className="flex flex-col gap-8 xl:flex-row xl:items-end xl:gap-6">
-        <div className="grid flex-1 gap-x-6 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:flex xl:gap-5">
+      <div className="flex flex-col gap-5 xs:gap-8 xl:flex-row xl:items-end xl:gap-6">
+        <div className="grid flex-1 gap-x-5 gap-y-4 xs:grid-cols-2 xs:gap-y-6 sm:gap-x-6 lg:grid-cols-4 xl:flex xl:gap-5">
           <SelectField
             label={labels.location}
             name="location"
             options={listingSearch.locations}
-            className={cn(segmentStyles, "sm:col-span-2 xl:flex-[1.3]")}
+            className={cn(segmentStyles, "xs:col-span-2 xl:flex-[1.3]")}
           />
           <SelectField
             label={labels.type}
@@ -78,7 +78,7 @@ export function ListingSearchForm({ className }: ListingSearchFormProps) {
             className={segmentStyles}
           />
         </div>
-        <button type="submit" className={buttonStyles("outline", "h-11 min-h-11 w-full rounded-xl border-white/30 text-white/75 hover:bg-white/10 hover:text-white/75 xl:w-auto xl:shrink-0")}>
+        <button type="submit" className={buttonStyles("outline", "h-9 min-h-9 w-full gap-2 rounded-xl text-2xs tracking-wide xs:h-11 xs:min-h-11 xs:w-auto xs:min-w-56 xs:gap-3 xs:self-center xs:text-xs xs:tracking-widest sm:text-sm xl:h-10 xl:min-h-10 xl:min-w-0 xl:gap-2 xl:self-auto xl:px-5 xl:text-xs border-white/30 text-white/75 hover:bg-white/10 hover:text-white/75 xl:w-auto xl:shrink-0")}>
           <Search className="size-4" aria-hidden />
           {listingSearch.submitLabel}
         </button>

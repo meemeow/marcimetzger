@@ -5,6 +5,11 @@ export type ImageAsset = {
   alt: string;
 };
 
+export type ExpandLabels = {
+  more: string;
+  less: string;
+};
+
 export type Feature = {
   title: string;
   description: string[];
