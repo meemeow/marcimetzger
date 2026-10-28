@@ -14,7 +14,7 @@ export function TextAreaField({ label, name, variant = "light", className, ...pr
       <label htmlFor={name} className={labelVariantStyles[variant]}>
         {label}
       </label>
-      <textarea id={name} name={name} className={cn(fieldVariantStyles[variant], "min-h-24 resize-y")} {...props} />
+      <textarea id={name} name={name} className={cn(fieldVariantStyles[variant], "min-h-20 resize-y xs:min-h-24")} {...props} />
     </div>
   );
 }

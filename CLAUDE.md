@@ -8,7 +8,7 @@ Junior Website Builder assignment (Luxury Presence). Revamp **only the Home page
 
 ## Assignment rules (non-negotiable)
 
-- **Single page only.** It revamps the Home page and nothing else. Nav links scroll to sections on the same page.
+- **Single page only.** It revamps the Home page and nothing else.
 - **Use ALL content from the reference Home page**, including every image (already downloaded to `src/assets/images` and `src/assets/svg`). Do not drop sections or text. Extra researched content is allowed (e.g. Pahrump area info, FAQs).
 - **Every researched fact must be verifiable.** Any claim not taken from the reference site needs an entry in `SOURCES.md` (claim, where it appears, source URL, notes). Never invent stats, awards, reviews or offers.
 - **Improve the design.** Do not copy the original layout one-to-one. Re-think hierarchy, spacing, typography and flow.

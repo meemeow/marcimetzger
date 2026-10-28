@@ -37,8 +37,8 @@ export function About() {
         </div>
         <div className="mx-auto w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-none">
           <SectionHeading eyebrow={about.eyebrow} title={about.title} align="left" divider="line" />
-          <p className="mt-6 font-serif text-xl italic text-foreground/80 xs:mt-8 xs:text-2xl">{about.headline}</p>
-          <div className="mt-4 space-y-4 text-sm leading-relaxed text-foreground/70 xs:mt-6 xs:text-base">
+          <p className="mt-5 font-serif text-lg italic text-foreground/80 xs:mt-8 xs:text-2xl">{about.headline}</p>
+          <div className="mt-3 space-y-3 text-xs leading-relaxed text-foreground/70 xs:mt-6 xs:space-y-4 xs:text-base">
             {about.bio.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}

@@ -21,7 +21,7 @@ export function ContactForm() {
 
   return (
     <GoldPlate className="self-center [--plate-fill:var(--color-charcoal)]">
-      <form onSubmit={handleSubmit} aria-labelledby={titleId} className="flex flex-col gap-4 p-5 xs:p-6 sm:p-8">
+      <form onSubmit={handleSubmit} aria-labelledby={titleId} className="flex flex-col gap-3 p-5 xs:gap-4 xs:p-6 sm:p-8">
         <h3 id={titleId} className="mb-1 text-center font-serif text-2xl font-medium xs:mb-2 xs:text-3xl sm:text-4xl">
           {form.title}
         </h3>
@@ -29,10 +29,10 @@ export function ContactForm() {
         <TextField label={form.labels.email} name="email" type="email" autoComplete="email" required variant="darkOutlined" />
         <TextAreaField label={form.labels.message} name="message" placeholder={form.messagePlaceholder} variant="darkOutlined" />
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <p className="text-xs text-white/70">
+          <p className="text-2xs text-white/70 xs:text-xs">
             <span className="text-gold-light">*</span> {form.requiredNote}
           </p>
-          <button type="submit" className={buttonStyles("solid", "min-h-10 px-10 text-xs")}>
+          <button type="submit" className={buttonStyles("solid", "min-h-9 gap-2 px-6 text-2xs xs:min-h-10 xs:gap-3 xs:px-10 xs:text-xs")}>
             <Send className="size-4" aria-hidden />
             {form.submitLabel}
           </button>

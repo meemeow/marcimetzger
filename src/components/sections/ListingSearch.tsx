@@ -25,7 +25,7 @@ export function ListingSearch() {
       />
       <SkyRise />
       <div className="absolute inset-0 -z-10 bg-ink/80" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-b from-transparent to-ink lg:h-64" />
+      <div className="absolute inset-x-0 -bottom-px -z-10 h-40 bg-linear-to-b from-transparent to-ink lg:h-64" />
       <div className="mx-auto w-full max-w-(--breakpoint-2xl)">
         <div className="mx-auto max-w-3xl text-center">
           <p className="flex items-center justify-center gap-3 text-2xs font-semibold uppercase tracking-[0.2em] text-gold-light xs:gap-4 xs:text-xs xs:tracking-[0.3em]">

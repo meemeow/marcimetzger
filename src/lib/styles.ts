@@ -17,7 +17,7 @@ export const labelStyles = "mb-2 block text-xs font-semibold uppercase tracking-
 export const darkLabelStyles = "mb-0.5 block text-2xs font-semibold uppercase tracking-widest text-white/75 xs:mb-1 xs:text-xs";
 
 export const darkOutlinedFieldStyles =
-  "w-full border border-white/30 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 transition-colors hover:border-gold-light/70 focus:border-gold-light focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-light/30";
+  "w-full border border-white/30 bg-white/5 px-3 py-2 text-xs text-white xs:px-4 xs:py-3 xs:text-sm placeholder:text-white/50 transition-colors hover:border-gold-light/70 focus:border-gold-light focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-light/30";
 
 export const fieldVariantStyles = {
   light: fieldStyles,

@@ -81,7 +81,7 @@ export function HeroCollapse({ id, className, children }: HeroCollapseProps) {
       data-header-overlay
       data-collapsed={progress >= 1 || undefined}
       className={cn("group/hero", className)}
-      style={{ minHeight: `calc(100svh - ${HERO_COLLAPSE_RATIO * 100}svh * ${progress})` }}
+      style={{ minHeight: `calc(100dvh - ${HERO_COLLAPSE_RATIO * 100}dvh * ${progress})` }}
     >
       {children}
     </section>

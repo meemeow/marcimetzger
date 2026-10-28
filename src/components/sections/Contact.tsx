@@ -13,7 +13,7 @@ export function Contact() {
   const { office, hours } = contact;
 
   return (
-    <Section id="contact" tone="cream" containerClassName="max-w-(--breakpoint-2xl)">
+    <Section id="contact" tone="cream" className="pt-12" containerClassName="max-w-(--breakpoint-2xl)">
       <div className="flex items-center gap-4 xs:gap-6 sm:gap-8">
         <p className="shrink-0 text-2xs font-semibold tracking-[0.2em] text-gold uppercase xs:text-xs xs:tracking-[0.3em]">
           {contact.eyebrow}
@@ -24,7 +24,7 @@ export function Contact() {
         {contact.title}
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-foreground/70 xs:mt-4 xs:text-base">{contact.description}</p>
-      <div className="mt-10 grid gap-6 xs:mt-12 xl:grid-cols-3">
+      <div className="mt-6 grid gap-6 xs:mt-12 xl:grid-cols-3">
         <div className="grid overflow-hidden rounded-md border border-gold/25 bg-white shadow-[0_24px_48px_rgb(0_0_0/0.25)] md:grid-cols-2 xl:col-span-2">
           <div className="flex flex-col gap-5 p-5 xs:gap-6 xs:p-6 sm:px-8 sm:py-12">
             <div className="flex items-center gap-3 xs:gap-4">
