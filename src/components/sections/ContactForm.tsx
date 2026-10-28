@@ -5,7 +5,6 @@ import { Send } from "lucide-react";
 import { contact } from "@/content/contact";
 import { buttonStyles } from "@/components/ui/Button";
 import { FormNotice } from "@/components/ui/FormNotice";
-import { GlowHeading } from "@/components/ui/GlowHeading";
 import { GoldPlate } from "@/components/ui/GoldPlate";
 import { TextAreaField } from "@/components/ui/TextAreaField";
 import { TextField } from "@/components/ui/TextField";
@@ -23,7 +22,9 @@ export function ContactForm() {
   return (
     <GoldPlate className="self-center [--plate-fill:var(--color-charcoal)]">
       <form onSubmit={handleSubmit} aria-labelledby={titleId} className="flex flex-col gap-4 p-6 sm:p-8">
-        <GlowHeading id={titleId} text={form.title} className="mb-2 text-center text-5xl" />
+        <h3 id={titleId} className="mb-2 text-center font-serif text-3xl font-medium sm:text-4xl">
+          {form.title}
+        </h3>
         <TextField label={form.labels.name} name="name" autoComplete="name" variant="darkOutlined" />
         <TextField label={form.labels.email} name="email" type="email" autoComplete="email" required variant="darkOutlined" />
         <TextAreaField label={form.labels.message} name="message" placeholder={form.messagePlaceholder} variant="darkOutlined" />

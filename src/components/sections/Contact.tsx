@@ -19,7 +19,7 @@ export function Contact() {
       <h2 className="mt-4 font-serif text-4xl leading-tight font-medium sm:text-5xl lg:text-6xl">{contact.title}</h2>
       <p className="mt-4 leading-relaxed text-foreground/70">{contact.description}</p>
       <div className="mt-12 grid gap-6 lg:grid-cols-3">
-        <div className="grid overflow-hidden bg-white shadow-sm md:grid-cols-2 lg:col-span-2">
+        <div className="grid overflow-hidden rounded-md border border-gold/25 bg-white shadow-[0_24px_48px_rgb(0_0_0/0.25)] md:grid-cols-2 lg:col-span-2">
           <div className="flex flex-col gap-6 p-6 sm:px-8 sm:py-12">
             <div className="flex items-center gap-4">
               <Image src={contact.emblem.src} alt={contact.emblem.alt} sizes="56px" className="size-14 shrink-0 object-contain" />
