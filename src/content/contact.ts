@@ -20,6 +20,8 @@ export const contact = {
   form: {
     title: "Send a Message!",
     submitLabel: "Send",
+    sendingLabel: "Sending...",
+    subject: "New message from the Marci Metzger website",
     requiredNote: "Required Fields",
     labels: {
       name: "Name",
@@ -27,7 +29,8 @@ export const contact = {
       message: "Message",
     },
     messagePlaceholder: "How can Marci help?",
-    notice: "Online messages are coming soon. Please call (206) 919-6886 and Marci will be happy to help.",
+    successMessage: "Thank you! Your message was sent and Marci will get back to you soon.",
+    errorMessage: "Sorry, your message could not be sent. Please try again or call (206) 919-6886.",
   },
   map: {
     src: site.maps.embed,

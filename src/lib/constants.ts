@@ -6,4 +6,6 @@ export const READING_WORDS_PER_MINUTE = 238;
 
 export const IMAGE_VIEWING_MS = 4000;
 
+export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
 export const DESKTOP_MEDIA_QUERY = "(min-width: 64rem)";
